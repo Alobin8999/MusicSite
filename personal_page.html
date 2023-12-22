@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Personal page - FEWZ" content="width=device-width, initial-scale=1.0">
+	<title>Личный кабинет - FEWZ</title>
+	<link rel='stylesheet' href='css/song_pages.css'>
+	<script src='js/visualiser_3.js'></script>
+</head>
+<body onload='main()'>
+	<div id='music_container'>
+		<canvas id='AGCanvas'></canvas>
+	</div>
+	<main id="main">
+		<section id="song_info">
+			<div id="icon"><img src="images/icon/author_4.png" width="200p"></div>
+			<div id="title">
+			<div id="font">
+				<h2>fewz music</h2>
+			</div>
+			<section id="text">
+				<p id="listeners">Слушателей за месяц   //   </p>
+				<p>Жанры   //   EDM, House, dance</p>
+			</section>
+			<section id="controls">
+				<div id="play" onclick="playMusic()"><img src="images/play.png" width="50px"></div>
+				<div id="pause" onclick="playMusic()"><img src="images/pause2.png" width="50px"></div>
+				<div id="loop" onclick="loop()"><img src="images/loop.png" width="50px"></div>
+			</section>
+			</div>
+			<div id="info">
+				<div id="font"><h2>Загрузка нового трека</h2></div>
+				<label id="input-file" style="color:white; font-size:23px; margin: 5px 10px; padding: 0 10px; cursor:pointer;">
+					<input type="file" id="thefile" accept="audio/*" required/>
+					<img src="images/upload.png" width="30px"> Загрузить
+				</label>
+				<div class="group">
+					<label>Название</label>
+					<input type="text" required>
+				</div>
+				<div class="group">
+					<label>Автор // Исполнители</label>
+					<input type="text" required value="FEWZ">
+				</div>
+				<div id="submit" onclick="alert('Новый трек успешно загружен на страницу')"><h1>Загрузить</h1></div>
+			</div>
+		</section>
+		<section id="another">
+			<section id="authors">
+				<h2>Лучшее</h2>
+				<div id="song_1" onclick="openSong()"><img src="images/icon/song_1.png" width="50px"><h1>Aux - Lapetus</h1></div>
+				<div id="song_2" onclick="openSong()"><img src="images/icon/song_2.png" width="50px"><h1>Inova - Immortal</h1></div>
+				<div id="song_3" onclick="location.href = 'music_page_2.html'"><img src="images/icon/song_3.png" width="50px"><h1>Tobu - Infectious</h1></div>
+				<div id="song_4" onclick="openSong()"><img src="images/icon/song_4.png" width="50px"><h1>Tobu - My Own Paradise</h1></div>
+				<div id="song_6" onclick="openSong()"><img src="images/icon/song_6.png" width="50px"><h1>Vicetone - Nevada (ft. Cozi Zuehlsdorff)</h1></div>
+				<div id="song_7" onclick="openSong()"><img src="images/icon/song_7.png" width="50px"><h1>Inova - Glow</h1></div>
+				<div class="author_n"><h1>Больше...</h1></div>
+			</section>
+			<section id="songs">
+				<h2>Все треки</h2>
+				<div id="progress" onclick="openSong()" ontimeupdate="progress()" style="transition: background .5s easy-in-out; background:linear-gradient(90deg, #7F681B var(--progress,0%), #3F6482 var(--progress,.1%)); display:none;" onmouseout="this.style.background='linear-gradient(90deg, #7F681B var(--progress,0%), #3F6482 var(--progress,.1%))'" onMouseOver="this.style.background='linear-gradient(90deg, #7F681B var(--progress,0%), #203B4A var(--progress,1%))'">
+					<img src="images/icon/song_new.png" width="50px"><h1>FEWZ - New song</h1>
+				</div>
+				<div id="song_1" onclick="openSong()"><img src="images/icon/song_1.png" width="50px"><h1>Aux - Lapetus</h1></div>
+				<div id="song_2" onclick="openSong()"><img src="images/icon/song_2.png" width="50px"><h1>Inova - Immortal</h1></div>
+				<div id="song_3" onclick="location.href = 'music_page_2.html'"><img src="images/icon/song_3.png" width="50px"><h1>Tobu - Infectious</h1></div>
+				<div id="song_4" onclick="openSong()"><img src="images/icon/song_4.png" width="50px"><h1>Tobu - My Own Paradise</h1></div>
+				<div id="song_5" onclick="openSong()"><img src="images/icon/song_5.png" width="50px"><h1>Marnage & B3nte & URBANO - Sky Is Falling Down</h1></div>
+				<div id="song_6" onclick="openSong()"><img src="images/icon/song_6.png" width="50px"><h1>Vicetone - Nevada (ft. Cozi Zuehlsdorff)</h1></div>
+				<div id="song_7" onclick="openSong()"><img src="images/icon/song_7.png" width="50px"><h1>Inova - Glow</h1></div>
+				<div id="song_8" onclick="openSong()"><img src="images/icon/song_8.png" width="50px"><h1>MOTi - Valencia</h1></div>
+				<div id="song_9" onclick="openSong()"><img src="images/icon/song_9.png" width="50px"><h1>VINAI - On N On (feat. Leony)</h1></div>
+				<div id="song_10" onclick="plc()"><img src="images/icon/song_10.png" width="50px"><h1>Mike Hawkins - Revolt (Radio Edit)</h1></div>
+				<div id="song_11" onclick="openSong()"><img src="images/icon/song_11.png" width="50px"><h1>FEWZ - Inside</h1></div>
+				<div class="song_n"><h1>Больше...</h1></div>
+			</section>
+			<section id="tops">
+				<h2>Альбомы</h2>
+				<!--<div id="top_1"><img src="images/icon/author_2.png" width="50px"><h1>Phoenix</h1><p>If your work still doesn't done done done, u'll gonna better run run run...<p></div>
+				<div id="top_2"><img src="images/icon/author_9.png" width="50px"><h1>boom kitty</h1><p>Good, good</p></div>
+				<div id="top_3"><img src="images/icon/author_5.png" width="50px"><h1>Tobu</h1><p>Y u still here? go to world tour !</p></div>
+				<div id="top_4"><img src="images/icon/author_4.png" width="50px"><h1>FEWZ</h1><p>Can i make remix of this great song ?</p></div>
+				<div id="top_5"><img src="images/icon/author_7.png" width="50px"><h1>MoTi</h1><p>._0</p></div>-->
+				<section id="top_n" onclick="coment()"><h1>Нет альбомов</h1></section>
+			</section>
+		</section>
+	</main>
+	<header id="header">
+		<nav>
+			<section id="nav_panel">
+				<div onclick="location.href = 'index.html'" id="main_page"><h1>Главная</h1></div>
+				<div id="genres_page"><h1>Жанры</h1></div>
+				<div id="authors_page"><h1>Исполнители</h1></div>
+				<div id="songs_page" onclick="location.href = 'songs_page.html'"><h1>Песни</h1></div>
+				<div id="lk_page" onclick="alert('Вы уже здесь')"><h1>Лич. кабинет</h1></div>
+				<div onclick="location.href = 'search.html'">
+					<input type="search" id="search">
+					<input type="button" value="Поиск" onclick="location.href = 'search.html'" id="search_button">
+				</div>
+			</section>
+		</nav>
+	</header>
+	<footer id="footer">
+		<section id="about_info">
+			<p>© 2022 Fewsic.ru, Обратная связь / Сообщить об ошибке - razmaev.leha@mail.ru<br>
+			Возрастное ограничение 14+</p>
+		</section>
+	</footer>
+	<section id="player">
+		<section id="bg_views">
+			<div id="bg_view_1" onclick="bgView1()"><img src="images/bg_1.svg"></div>
+			<div id="bg_view_2" onclick="bgView2()"><img src="images/bg_2.svg"></div>
+			<div id="bg_view_3" onclick="bgView3()"><img src="images/bg_3.svg"></div>
+			<div id="bg_view_more" onclick="bgViewMore()"><img src="images/bg_more.svg"></div>
+		</section>
+		<audio id="audio_ag" controls></audio>
+		<section id="community_zone">
+			<div id="visible" onclick="visibleFooter()"><img src="images/visible.png" width="50px"></div>
+			<div id="heart" onclick="clickLike()"><img src="images/like.png" width="50px"></div>
+			<div id="like" onclick="clickLike()"><img src="images/heart.png" width="50px"></div>
+			<div id="send" onclick="send()"><img src="images/send.png" width="50px"></div>
+		</section>
+	</section>
+	<section id="stars">
+		<div id="stars_cont">
+			<div style="width:100%; margin: 10px auto;" id="star"><h1>Что вы думаете о нашем сервисе ?</h1></div>
+			<div id="star1" onclick="document.getElementById('stars').style.display = 'none'"><img src="images/star.png" width="50px"></div>
+			<div id="star2" onclick="document.getElementById('stars').style.display = 'none'"><img src="images/star.png" width="50px"></div>
+			<div id="star3" onclick="document.getElementById('stars').style.display = 'none'"><img src="images/star.png" width="50px"></div>
+			<div id="star4" onclick="document.getElementById('stars').style.display = 'none'"><img src="images/star.png" width="50px"></div>
+			<div id="star5" onclick="document.getElementById('stars').style.display = 'none'"><img src="images/star.png" width="50px"></div>
+		</div>
+	</section>
+</body>
+</html>
